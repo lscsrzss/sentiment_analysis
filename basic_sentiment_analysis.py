@@ -25,10 +25,11 @@ print ('Min Polarity', df['polarity'].min())
 
 print ('Average Polarity', df['polarity'].mean())
 
+column_number=len(df.columns)
 
 n=0
 
-while n<5:
+while n<column_number:
     df['P ' + str(n)] = df['content'].apply(lambda x: TextBlob(x).sentiment.polarity)
     df['S ' + str(n)] = df['content'].apply(lambda x: TextBlob(x).sentiment.subjectivity)
     n += 1
